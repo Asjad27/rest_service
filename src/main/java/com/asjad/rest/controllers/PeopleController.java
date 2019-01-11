@@ -47,4 +47,11 @@ public class PeopleController {
         else
             return null;
     }
+
+    @DeleteMapping("/people/{id}")
+    void deletePerson(@PathVariable Long id) {
+        if(peopleRepository.findById(id).isPresent()) {
+            peopleRepository.deleteById(id);
+        }
+    }
 }
