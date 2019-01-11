@@ -31,4 +31,20 @@ public class PeopleController {
     People newPerson(@RequestBody People newPerson) {
         return peopleRepository.save(newPerson);
     }
+
+    @PutMapping("/people/{id}")
+    People replacePerson(@RequestBody People newPerson, @PathVariable Long id) {
+        People oldPerson;
+        if(peopleRepository.findById(id).isPresent()) {
+            oldPerson = peopleRepository.findById(id).get();
+            oldPerson.setName(newPerson.getName());
+            oldPerson.setCity(newPerson.getCity());
+            oldPerson.setAge(newPerson.getAge());
+            oldPerson.setOccupation(newPerson.getOccupation());
+            oldPerson.setAnnualTax(newPerson.getAnnualTax());
+            return peopleRepository.save(oldPerson);
+        }
+        else
+            return null;
+    }
 }

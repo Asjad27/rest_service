@@ -75,6 +75,35 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "PUT - Update Existing Person",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Person One\",\n    \"city\": \"City-1\",\n    \"age\": 33,\n    \"occupation\": \"Occupation-1\",\n    \"annualTax\": 334.33\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/people/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"people",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }
