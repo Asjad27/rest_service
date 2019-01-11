@@ -27,4 +27,6 @@ public class People {
         this.occupation = occupation;
         this.annualTax = annualTax;
     }
+
+    public People(){}
 }
