@@ -37,11 +37,16 @@ public class PeopleController {
         People oldPerson;
         if(peopleRepository.findById(id).isPresent()) {
             oldPerson = peopleRepository.findById(id).get();
-            oldPerson.setName(newPerson.getName());
-            oldPerson.setCity(newPerson.getCity());
-            oldPerson.setAge(newPerson.getAge());
-            oldPerson.setOccupation(newPerson.getOccupation());
-            oldPerson.setAnnualTax(newPerson.getAnnualTax());
+            if(newPerson.getName() != null)
+                oldPerson.setName(newPerson.getName());
+            if(newPerson.getCity() != null)
+                oldPerson.setCity(newPerson.getCity());
+            if(newPerson.getAge() != 0)
+                oldPerson.setAge(newPerson.getAge());
+            if(newPerson.getOccupation() != null)
+                oldPerson.setOccupation(newPerson.getOccupation());
+            if(newPerson.getAnnualTax() != 0.0)
+                oldPerson.setAnnualTax(newPerson.getAnnualTax());
             return peopleRepository.save(oldPerson);
         }
         else
