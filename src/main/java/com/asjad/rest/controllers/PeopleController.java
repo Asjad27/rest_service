@@ -2,9 +2,7 @@ package com.asjad.rest.controllers;
 
 import com.asjad.rest.entities.People;
 import com.asjad.rest.repositories.PeopleRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +25,10 @@ public class PeopleController {
             return peopleRepository.findById(id).get();
         else
             return null;
+    }
+
+    @PostMapping("/people")
+    People newPerson(@RequestBody People newPerson) {
+        return peopleRepository.save(newPerson);
     }
 }

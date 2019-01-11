@@ -46,6 +46,35 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "POST - Add New Person",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Person Two\",\n    \"city\": \"City-2\",\n    \"age\": 45,\n    \"occupation\": \"Occupation-2\",\n    \"annualTax\": 123.45\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/people/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"people",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }
